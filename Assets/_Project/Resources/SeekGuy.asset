@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SeekGuy
   m_EditorClassIdentifier: 
   _info:
-    WalkSpeed: 1.5
-    RunSpeed: 4
+    WalkSpeed: 0.8
+    RunSpeed: 2
     LookRange: 90
-    AgentRadius: 0.5
-    AgentAngularSpeed: 700
-    AgentStopDistance: 1
+    AgentRadius: 0.1
+    AgentAngularSpeed: 1200
+    AgentStopDistance: 0
     Behaviour: 1

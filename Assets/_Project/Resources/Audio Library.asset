@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7320d6dfe90214b800882367584532, type: 3}
+  m_Name: Audio Library
+  m_EditorClassIdentifier: 
+  Music: {fileID: 8300000, guid: 04f95ddf886752448bbf6f6e35fa756f, type: 3}
+  WoodStep:
+    AudioClips: []
+  MetalStep:
+    AudioClips: []
+  TileStep:
+    AudioClips: []
+  ConcreteStep:
+    AudioClips:
+    - {fileID: 8300000, guid: d1dc05cfad0f8c146a644cdda4d037cd, type: 3}
+    - {fileID: 8300000, guid: 4d25eb4fe0c955742b4d9be3f846a774, type: 3}
+    - {fileID: 8300000, guid: fe6aa129a397a4042bc8264a87c29e78, type: 3}
+    - {fileID: 8300000, guid: a8da5352ff91e974c85d0358b6c4066d, type: 3}
+  GrassStep:
+    AudioClips: []

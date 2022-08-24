@@ -75,9 +75,16 @@ namespace AINO.AI
             _behaviour = info.Behaviour;
             _currentSpeed = _normalSpeed;
             _agent.speed = _currentSpeed;
-            _currentPath = _pathManager.GetRandomPath();
 
             SetPathPoint();
+        }
+
+        public void SetPathPoint()
+        {
+            if (_chasing) { return; }
+
+            Vector3 point = _pathManager.GetPoint(_currentPath);
+            RpcSetPoint(point);
         }
 
         private void Update()
@@ -149,14 +156,6 @@ namespace AINO.AI
             }
         }
 
-        private void SetPathPoint()
-        {
-            if (_chasing) { return; }
-
-            Vector3 point = _pathManager.GetPoint(_currentPath);
-            RpcSetPoint(point);
-        }
-
         private void StartChasing()
         {
             _currentSpeed = _runSpeed;
@@ -217,6 +216,8 @@ namespace AINO.AI
 
         private bool CanSeeTarget()
         {
+            if(_target == null) { return false; }
+
             RaycastHit hit;
             Vector3 rayToTarget = _target.position - _rayPosition.position;
 
@@ -230,6 +231,10 @@ namespace AINO.AI
                     {
                         return true;
                     }
+                }
+                else
+                {
+                    Debug.DrawLine(_rayPosition.position, _target.position, Color.red);
                 }
             }
 

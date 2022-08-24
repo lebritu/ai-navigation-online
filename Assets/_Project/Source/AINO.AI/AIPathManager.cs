@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -18,13 +19,13 @@ namespace AINO.AI
             _points = GetComponentsInChildren<AIPathPoints>();
         }
 
-        public override void OnStartServer()
+        public override async void OnStartServer()
         {
             foreach (AiSpawnInfo info in _spawnInfo)
             {
                 for (int i = 0; i < info.SpawnCount; i++)
                 {
-                    CreateSpawnAgent(info.Data.Info);
+                    await CreateSpawnAgent(info.Data.Info);
                 }
             }
         }
@@ -46,12 +47,16 @@ namespace AINO.AI
             return _points[randomNumber];
         }
 
-        private void CreateSpawnAgent(AiPropertiesInfo info)
+        private async Task CreateSpawnAgent(AiPropertiesInfo info)
         {
             Transform initialPosition = GetRandomPath().transform;
 
             AICommonController agent = Instantiate(_aiAgentPrefab, initialPosition.position, initialPosition.rotation);
+
+            await Task.Delay(100);
+
             NetworkServer.Spawn(agent.gameObject);
+
             agent.Initialize(this, info);
         }
 
