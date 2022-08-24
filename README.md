@@ -10,6 +10,7 @@ A simple AI demo in sync with players
 - Unity
 - Mirror
 - DGTween
+- [FPS Multiplayer Template](https://github.com/lebritu/fps-multiplayer-template)
 
 ## Author
 
