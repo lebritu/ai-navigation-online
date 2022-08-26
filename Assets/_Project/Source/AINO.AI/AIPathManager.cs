@@ -10,7 +10,7 @@ namespace AINO.AI
         [SerializeField]
         private List<AiSpawnInfo> _spawnInfo;
         [SerializeField]
-        private AICommonController _aiAgentPrefab;
+        private AIMotorController _aiAgentPrefab;
 
         private AIPathPoints[] _points;
 
@@ -51,7 +51,7 @@ namespace AINO.AI
         {
             Transform initialPosition = GetRandomPath().transform;
 
-            AICommonController agent = Instantiate(_aiAgentPrefab, initialPosition.position, initialPosition.rotation);
+            AIMotorController agent = Instantiate(_aiAgentPrefab, initialPosition.position, initialPosition.rotation);
 
             await Task.Delay(100);
 

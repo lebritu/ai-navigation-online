@@ -6,7 +6,7 @@ using Mirror;
 
 namespace AINO.AI
 {
-    public class AICommonController : NetworkBehaviour
+    public class AIMotorController : NetworkBehaviour
     {
         public event Action OnSetPath;
 
@@ -166,6 +166,7 @@ namespace AINO.AI
 
         private void TakeDecision()
         {
+            //TODO: Decide future character actions
             SetPathPoint();
         }
 
@@ -176,7 +177,7 @@ namespace AINO.AI
             _Flee = false;
             _currentSpeed = _normalSpeed;
             _agent.speed = _currentSpeed;
-            RpcSetAnimationBool("Run", false);
+            RpcSetAnimationBool(RunAnimTrigger, false);
             SetPathPoint();
         }
 
